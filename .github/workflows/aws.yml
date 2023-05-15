@@ -11,9 +11,9 @@ on:
         - monalisa
         - cschleiden    
   
-env:
-  AWS_REGION: ${{ secrets.VINOD_TEST }}                 # set this to your preferred AWS region, e.g. us-west-1
-  UAT: ${{ secrets.VINOD_DEV }}
+# env:
+#   AWS_REGION: ${{ secrets.VINOD_TEST }}                 # set this to your preferred AWS region, e.g. us-west-1
+#   UAT: ${{ secrets.VINOD_DEV }}
 jobs:
   deploy:
     name: Deploy
