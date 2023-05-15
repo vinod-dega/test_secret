@@ -12,8 +12,8 @@ on:
         - cschleiden    
   
 env:
-  AWS_REGION: ${{ secrets.VINOD_TEST }}                   # set this to your preferred AWS region, e.g. us-west-1
-
+  AWS_REGION: ${{ secrets.VINOD_TEST }}                 # set this to your preferred AWS region, e.g. us-west-1
+  UAT: ${{ secrets.VINOD_DEV }}
 jobs:
   deploy:
     name: Deploy
@@ -27,3 +27,5 @@ jobs:
     - name: Build, tag, and push image to Amazon ECR
       run: |
         echo "${{ secrets.VINOD_TEST }}"
+        echo "${{ secrets.VINOD_DEV }}"
+
