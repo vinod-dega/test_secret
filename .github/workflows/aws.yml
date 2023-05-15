@@ -28,5 +28,5 @@ jobs:
          UAT: ${{ secrets.VINOD_DEV }}
       run: |
         echo "organization: ${{ secrets.VINOD_TEST }}"
-        echo "environment: ${{ secrets.VINOD_DEV }}"
+        echo "environment: ${{ env.VINOD_DEV }}"
 
