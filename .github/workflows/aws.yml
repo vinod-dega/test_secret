@@ -24,6 +24,8 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Build, tag, and push image to Amazon ECR
+      env:
+         UAT: ${{ secrets.VINOD_DEV }}
       run: |
         echo "organization: ${{ secrets.VINOD_TEST }}"
         echo "environment: ${{ secrets.VINOD_DEV }}"
