@@ -19,13 +19,10 @@ jobs:
     environment: dev
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-
     - name: Build, tag, and push image to Amazon ECR
       env:
          VINOD_DEV: ${{ secrets.VINOD_DEV }}
       run: |
         echo "organization: ${{ secrets.VINOD_TEST }}"
-        echo "environment: ${{ secrets.VINOD_DEV }}"
+        echo "environment: ${{ env.VINOD_DEV }}"
 
