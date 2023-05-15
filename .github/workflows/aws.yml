@@ -16,7 +16,6 @@ on:
 #   UAT: ${{ secrets.VINOD_DEV }}
 jobs:
   deploy:
-    name: Deploy
     runs-on: ubuntu-latest
     environment: dev
     steps:
@@ -28,5 +27,5 @@ jobs:
          VINOD_DEV: ${{ secrets.VINOD_DEV }}
       run: |
         echo "organization: ${{ secrets.VINOD_TEST }}"
-        echo "environment: ${{ env.VINOD_DEV }}"
+        echo "environment: ${{ secrets.VINOD_DEV }}"
 
