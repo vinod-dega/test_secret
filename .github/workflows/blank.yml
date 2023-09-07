@@ -1,6 +1,15 @@
 name: Build Docker Image and Setup Database
 
 on:
+  workflow_run:
+    inputs:
+      build-type:
+        description: 'Select the type of build'
+        required: true
+        default: 'yes'
+        options:
+          - yes
+          - no
   push:
     branches:
       - main
