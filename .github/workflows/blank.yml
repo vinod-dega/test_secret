@@ -26,7 +26,7 @@ jobs:
         # Here you can run database setup commands using a script or directly.
         # For example, if you're using PostgreSQL:
         # psql -U username -d database_name -f setup.sql
-	
+
     - name: Push Docker image to GitHub Container
       run: |
         docker --version
