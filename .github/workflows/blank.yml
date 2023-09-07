@@ -1,0 +1,38 @@
+name: Build Docker Image and Setup Database
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+
+    - name: Set up database
+      run: |
+        # Here you can run database setup commands using a script or directly.
+        # For example, if you're using PostgreSQL:
+        # psql -U username -d database_name -f setup.sql
+
+    - name: Build Docker image
+      run: |
+	    docker --version
+
+    - name: Push Docker image to GitHub Container Registry
+      run: |
+        echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.repository_owner }} --password-stdin
+        docker tag your-image-name:latest ghcr.io/${{ github.repository }}/your-image-name:latest
+        docker push ghcr.io/${{ github.repository }}/your-image-name:latest
