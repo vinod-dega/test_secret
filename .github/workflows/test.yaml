@@ -1,0 +1,23 @@
+name: Create AWS EKS Namespace
+
+on:
+  push:
+    branches: [main]
+  workflow_run:
+    workflows: ["namespace.yaml"]
+    types:
+      - pushed
+
+jobs:
+  create-eks-namespace:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Unset AWS CLI credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ""
+          aws-secret-access-key: ""
